@@ -16,5 +16,6 @@ ENDMACRO()
 add_example(hello_cv)
 add_example(basic_functions)
 add_example(array_types)
+add_example(split_channels)
 
 
