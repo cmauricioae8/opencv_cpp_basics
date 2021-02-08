@@ -1,0 +1,20 @@
+cmake_minimum_required(VERSION 3.5)
+
+set(CMAKE_CXX_STANDARD 14)
+
+PROJECT(opencv_cpp_tutorials)
+
+find_package( OpenCV REQUIRED ) #find_package( OpenCV 4 REQUIRED )
+
+include_directories( ${OpenCV_INCLUDE_DIRS})
+
+MACRO(add_example name)
+  ADD_EXECUTABLE(${name} src/${name}.cpp)
+  TARGET_LINK_LIBRARIES(${name} ${OpenCV_LIBS})
+ENDMACRO()
+
+add_example(hello_cv)
+add_example(basic_functions)
+add_example(array_types)
+
+
