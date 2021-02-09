@@ -1,7 +1,7 @@
-# opencv_cpp_tutorials
-OpenCV tutorials with C++ for beginners focused on robotics 
+# opencv_cpp_basics
+OpenCV tutorials with C++ for beginners
 
-To build using CMake, in ~/opencv_cpp_tutorials/build:
+To build using CMake, in ~/opencv_cpp_basics/build:
 
 $ cmake ..
 
