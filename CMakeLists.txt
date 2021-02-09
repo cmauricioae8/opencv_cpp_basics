@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.5)
 
 set(CMAKE_CXX_STANDARD 14)
 
-PROJECT(opencv_cpp_tutorials)
+PROJECT(opencv_cpp_basics)
 
 find_package( OpenCV REQUIRED ) #find_package( OpenCV 4 REQUIRED )
 
