@@ -17,5 +17,7 @@ add_example(hello_cv)
 add_example(basic_functions)
 add_example(array_types)
 add_example(split_channels)
-
-
+add_example(drawing_functions)
+add_example(simple_webcam)
+add_example(record_vid_cam)
+add_example(record_video)
