@@ -34,8 +34,8 @@ int main(int argc, char** argv )
   }
 
   //Getting the video properties
-  int frame_width = cap.get(CV_CAP_PROP_FRAME_WIDTH);
-  int frame_height = cap.get(CV_CAP_PROP_FRAME_HEIGHT);
+  int frame_width = cap.get(CAP_PROP_FRAME_WIDTH);
+  int frame_height = cap.get(CAP_PROP_FRAME_HEIGHT);
   Size frame_size(frame_width, frame_height);
   double fps = cap.get(CAP_PROP_FPS); //Frames per second
 
@@ -47,7 +47,8 @@ int main(int argc, char** argv )
   double fontScale = 2; //Size of the font
 
   //Define the video codec by FOURCC, recoding method, fourcc integer
-  int fcc = CV_FOURCC('X','V','I','D');
+  //int fcc = CV_FOURCC('X','2','6','4');
+  int fcc =  VideoWriter::fourcc('M','J','P','G');
   //'X','V','I','D' open source codec
   //'M','J','P','G' Motion JPEG video
   //'X','2','6','4' open source H.264 implementation (compressed)

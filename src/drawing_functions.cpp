@@ -62,7 +62,7 @@ int main(int argc, char** argv ) //char *argv[]
   rectangle(base,my_rectangle,Scalar(0,0,250),my_thickness,1); //Draw a rectangle (using Rect)
   rectangle(base,p1,p2,Scalar(0,0,200),my_thickness,1); //Draw a rectangle (using two points)
 
-  circle(base,p2,50,Scalar(240,0,0),CV_FILLED,LINE_AA); //Draw a filled circle
+  circle(base,p2,50,Scalar(240,0,0),-1,LINE_AA); //Draw a filled circle
 
   line(base,p1,Point(p1.x+my_width,p1.y+my_height),Scalar(0,250,0),my_thickness,4); //Draw a line
 
@@ -109,9 +109,9 @@ int main(int argc, char** argv ) //char *argv[]
     for( int i = 0; i < points_list.size(); i++ )
       circle(base, points_list[i], radius, random_color, -1, 8, 0);
 
-    for( int i = 0; i < my_points.size(); i++ )
+    /*for( int i = 0; i < my_points.size(); i++ )
       circle(base, my_points[i], radius, Scalar(rng.uniform(0,255), rng.uniform(0,255),
-                                                 rng.uniform(0,255)), -1, 8, 0 );
+                                                 rng.uniform(0,255)), -1, 8, 0 );*/
 
     imshow(my_draw_win, base);
 
@@ -150,7 +150,7 @@ int main(int argc, char** argv ) //char *argv[]
   drawMarker(base,bl,Scalar(250,250,250),MARKER_TRIANGLE_UP,30,my_thickness,8);
 
 
-  //-------- DRAWING TEXT: consersion from integer to string and vice-versa
+  //-------- DRAWING TEXT: conversion from integer to string and vice-versa
   putText(base,"simple text (simplex)",bl,FONT_HERSHEY_SIMPLEX,my_fontScale,my_color,my_thickness,0,false);
   putText(base,"simple text (plain)",bl,FONT_HERSHEY_PLAIN,my_fontScale,my_color,my_thickness,0,true);
 

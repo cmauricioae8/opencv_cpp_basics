@@ -48,8 +48,10 @@ int main(int argc, char** argv )
   string trackbar1_name = "alpha";
 
   //If a trackbar using a callback function is created, then a while loop is not required
-  createTrackbar( trackbar1_name, sum_window, &alpha_slider, alpha_slider_max, trackbar_callback1);
-  trackbar_callback1(alpha_slider, 0); //Execute the callback function once
+  //createTrackbar( trackbar1_name, sum_window, &alpha_slider, alpha_slider_max, trackbar_callback1);
+  createTrackbar( trackbar1_name, sum_window, NULL, alpha_slider_max, trackbar_callback1);
+  setTrackbarPos(trackbar1_name, sum_window, alpha_slider); //Set the initial vaue
+  //trackbar_callback1(0, NULL); //Execute the callback function once
 
 
   //---------- Option 2: Create a trackbar using a global variable (not a callback function)
@@ -58,7 +60,9 @@ int main(int argc, char** argv )
   string trackbar2_name = "shape:\n 0: circle\n 1: square\n 2: rectangle\n"; //A menu format can be obtained
 
   //Create a trackbar using a global variable, thus a while loop is required
-  createTrackbar( trackbar2_name, shape_window, &shape, shape_max, 0, 0); //Note: no user data
+  //createTrackbar( trackbar2_name, shape_window, &shape, shape_max, NULL, NULL); //Note: no user data
+  createTrackbar( trackbar2_name, shape_window, NULL, shape_max, NULL, NULL); //Note: no user data
+  setTrackbarPos(trackbar2_name, shape_window, shape); //Set the initial vaue
 
 
   cout << "Press ESC key to exit" << endl;
@@ -68,6 +72,7 @@ int main(int argc, char** argv )
     Mat temp;
     img1.copyTo(temp); //A copy is used to erase the previous draw
 
+    shape = getTrackbarPos(trackbar2_name, shape_window);
     if(shape == 0)
       circle(temp,Point(img1.cols/2,img1.rows/2),200,Scalar(255,255,255),3,8,0); //Draw a circle at the center of the image
     else if(shape == 1)
@@ -85,11 +90,12 @@ int main(int argc, char** argv )
 
       //Setting the value of a trackbar
       setTrackbarPos(trackbar1_name, sum_window, 75);
-      setTrackbarMax(trackbar1_name, sum_window, 90);
+      //setTrackbarMax(trackbar1_name, sum_window, 90); //Does not work
       setTrackbarMin(trackbar1_name, sum_window, 10);
     }
 
     imshow(shape_window, temp); //Display the temporal image
+    
 
     int key = waitKey(100); //Wait 100 ms for any key press
     if(key == 27) break; //ESC key = 27

@@ -5,8 +5,6 @@
 #include <iostream>
 #include <stdio.h>
 #include "opencv2/opencv.hpp" //Include OpenCV header file
-//#include "opencv2/highgui/highgui.hpp"
-//#include "opencv2/imgproc/imgproc.hpp"
 
 using namespace std;
 using namespace cv;
@@ -21,22 +19,31 @@ int main(int argc, char **argv)
   }
 
   string control_win = "Control";
-  namedWindow(control_win, CV_WINDOW_AUTOSIZE); //Create the control window
+  namedWindow(control_win, WINDOW_NORMAL); //Create the control window
 
   //Creating the variables to define the range of the specific color (red)
   int lowH = 170; int highH = 179;
   int lowS = 150; int highS = 255;
   int lowV = 60;  int highV = 255;
 
-  //Creating the trackbars
-  createTrackbar("LowH", control_win, &lowH, 179); //Hue (0 - 179)
-  createTrackbar("HighH", control_win, &highH, 179);
+  //Creating and setting a position for the trackbars
+  //Hue (0 - 179)
+  createTrackbar("LowH", control_win, NULL, 179, NULL, NULL);
+  setTrackbarPos("LowH", control_win, lowH); //Set the initial vaue
+  createTrackbar("HighH", control_win, NULL, 179, NULL, NULL);
+  setTrackbarPos("HighH", control_win, highH);
 
-  createTrackbar("LowS", control_win, &lowS, 255); //Saturation (0 - 255)
-  createTrackbar("HighS", control_win, &highS, 255);
+  //Saturation (0 - 255)
+  createTrackbar("LowS", control_win, NULL, 255, NULL, NULL);
+  setTrackbarPos("LowS", control_win, lowS);
+  createTrackbar("HighS", control_win, NULL, 255, NULL, NULL);
+  setTrackbarPos("HighS", control_win, highS);
 
-  createTrackbar("LowV", control_win, &lowV, 255); //Value (0 - 255)
-  createTrackbar("HighV", control_win, &highV, 255);
+  //Value (0 - 255)
+  createTrackbar("LowV", control_win, NULL, 255, NULL, NULL);
+  setTrackbarPos("LowV", control_win, lowV);
+  createTrackbar("HighV", control_win, NULL, 255, NULL, NULL);
+  setTrackbarPos("HighV", control_win, highV);
 
 
   cout << "Press ESC or 'q' key to exit" << endl;
@@ -53,6 +60,14 @@ int main(int argc, char **argv)
 
     Mat imgHSV;
     cvtColor(src, imgHSV, COLOR_BGR2HSV); //Convert the captured frame from BGR to HSV color space
+
+    //Update values
+    lowH = getTrackbarPos("LowH", control_win);
+    highH = getTrackbarPos("HighH", control_win);
+    lowS = getTrackbarPos("LowS", control_win);
+    highS = getTrackbarPos("HighS", control_win);
+    lowV = getTrackbarPos("LowV", control_win);
+    highV = getTrackbarPos("HighV", control_win);
 
     Mat imgThresholded;
     inRange(imgHSV, Scalar(lowH, lowS, lowV), Scalar(highH, highS, highV), imgThresholded);

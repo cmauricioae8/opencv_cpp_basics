@@ -1,0 +1,15 @@
+/home/mau/opencv_cpp_basics/build/CMakeFiles/hello_cv.dir
+/home/mau/opencv_cpp_basics/build/CMakeFiles/basic_functions.dir
+/home/mau/opencv_cpp_basics/build/CMakeFiles/array_types.dir
+/home/mau/opencv_cpp_basics/build/CMakeFiles/split_channels.dir
+/home/mau/opencv_cpp_basics/build/CMakeFiles/drawing_functions.dir
+/home/mau/opencv_cpp_basics/build/CMakeFiles/simple_webcam.dir
+/home/mau/opencv_cpp_basics/build/CMakeFiles/record_vid_cam.dir
+/home/mau/opencv_cpp_basics/build/CMakeFiles/record_video.dir
+/home/mau/opencv_cpp_basics/build/CMakeFiles/bitwise_ops.dir
+/home/mau/opencv_cpp_basics/build/CMakeFiles/trackbar_wsum.dir
+/home/mau/opencv_cpp_basics/build/CMakeFiles/mouse_events.dir
+/home/mau/opencv_cpp_basics/build/CMakeFiles/mouse_userdata_buttons.dir
+/home/mau/opencv_cpp_basics/build/CMakeFiles/inrange_hsv.dir
+/home/mau/opencv_cpp_basics/build/CMakeFiles/edit_cache.dir
+/home/mau/opencv_cpp_basics/build/CMakeFiles/rebuild_cache.dir

@@ -46,11 +46,11 @@ int main(int argc, char** argv ) //char *argv[]
   }
 
   //Getting the video properties
-  int frame_width = cap.get(CV_CAP_PROP_FRAME_WIDTH);
-  int frame_height = cap.get(CV_CAP_PROP_FRAME_HEIGHT);
+  int frame_width = cap.get(CAP_PROP_FRAME_WIDTH);
+  int frame_height = cap.get(CAP_PROP_FRAME_HEIGHT);
   Size frame_size(frame_width, frame_height);
   double fps = cap.get(CAP_PROP_FPS); //after open the capture obj
-  int total_frames = cap.get(CV_CAP_PROP_FRAME_COUNT);
+  int total_frames = cap.get(CAP_PROP_FRAME_COUNT);
 
   cout << "Source info:\n Size:" << frame_size << endl;
   cout << " Frames per seconds:" << fps << endl;
@@ -61,7 +61,8 @@ int main(int argc, char** argv ) //char *argv[]
   double fontScale = 2; //Size of the font
 
   //Define the video codec by FOURCC, recoding method, fourcc integer
-  int fcc = CV_FOURCC('X','V','I','D');
+  //int fcc = CV_FOURCC('X','V','I','D');
+  int fcc =  VideoWriter::fourcc('M','J','P','G');
   //'X','V','I','D' open source codec
   //'M','J','P','G' Motion JPEG video
   //'X','2','6','4' open source H.264 implementation (compressed)
@@ -82,8 +83,8 @@ int main(int argc, char** argv ) //char *argv[]
   while(!finish) //while finish == false
   {
     cout << "Starting video" << endl;
-    cap.set(CV_CAP_PROP_POS_FRAMES, 0); //Set the initial videocapture position on 0
-    while(cap.get(CV_CAP_PROP_POS_FRAMES) <= total_frames-1)//Compare if the video has not finished
+    cap.set(CAP_PROP_POS_FRAMES, 0); //Set the initial videocapture position on 0
+    while(cap.get(CAP_PROP_POS_FRAMES) <= total_frames-1)//Compare if the video has not finished
     {
       Mat frame;
 
@@ -98,7 +99,7 @@ int main(int argc, char** argv ) //char *argv[]
       }
 
       //Getting the frame position
-      int frame_pos = cap.get(CV_CAP_PROP_POS_FRAMES);
+      int frame_pos = cap.get(CAP_PROP_POS_FRAMES);
       string pos_frame = int2string(frame_pos);
       putText(frame,"frame pos = "+pos_frame, Point(10,50),2,fontScale,Scalar(0,0,0),1.5,1);
 

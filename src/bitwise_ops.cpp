@@ -22,7 +22,7 @@ int main(int argc, char** argv )
   Mat img2 = Mat(my_size,CV_8UC1, Scalar(0));
 
   rectangle(img1, Rect(Point(100,50),Point(400,150)),Scalar(255),-1); //Draw a filled rectangle
-  circle(img2, Point(250,100),70,Scalar(255),CV_FILLED,8); //Draw a filled circle
+  circle(img2, Point(250,100),70,Scalar(255),-1,8); //Draw a filled circle
 
   //Display binary images
   imshow("Image 1", img1); imshow("Image 2", img2); //Windows_autosize

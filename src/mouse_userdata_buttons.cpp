@@ -1,5 +1,5 @@
 /* @functions:   mouse_callback, setMouseCallback, createButton
- * @Description: A simple program to extract a ROI from an image using mouse events and displaying checkbox and push button
+ * @Description: A simple program to extract a ROI from an image using mouse events (displaying checkbox and push button not supported)
  * @author:      C. Mauricio Arteaga-Escamilla
  */
 #include <iostream>
@@ -67,7 +67,7 @@ void mouse_callback(int event, int x, int y, int, void* data_ptr) //The flags ar
   }
 }
 
-void callback_checkbox_button(int state, void*)
+/*void callback_checkbox_button(int state, void*)
 { //It could be 0 or 1 for a check box button
   cout << "check box state: " << state << endl;
 }
@@ -78,7 +78,7 @@ void callback_push_button(int state, void *data_ptr)
 
   userdata *data = ((userdata *) data_ptr);
   destroyWindow(data->cropped_img_win); //Close the specified window
-}
+}*/
 
 
 int main(int argc, char** argv )
@@ -98,7 +98,7 @@ int main(int argc, char** argv )
   local_data.thickness = 4;
 
   namedWindow(my_window, WINDOW_NORMAL); //Create the window to show the image
-  //resizeWindow(my_window,Size(src_img.cols/2,src_img.rows/2)); //With WINDOW_NORMAL
+  resizeWindow(my_window,Size(img.cols/2,img.rows/2)); //With WINDOW_NORMAL
 
 
   imshow(my_window, img); //Display the image
